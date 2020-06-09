@@ -1,0 +1,44 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+
+<MainWindow>:
+    name:'main'
+    Button:
+        text: 'Enter Zen Mode'
+        size_hint: 0.3, 0.2
+        pos: 750, 550
+        on_release:
+            app.root.current = 'second'
+
+<SecondWindow>
+    name: 'second'
+    Button:
+        text: 'Go Back'
+        size_hint: 0.2, 0.1
+        pos: 1600, 0
+        on_release: app.root.current = 'main'
+
+    Button:
+        text: 'start'
+        size_hint: 0.1, 0.1
+        pos: 100, 500
+        on_press : root.start()
+
+    Button:
+        text: 'stop'
+        size_hint: 0.1, 0.1
+        pos: 100, 350
+        on_press: root.stop()
+
+    Button:
+        text: 'Reset'
+        size_hint: 0.1, 0.1
+        pos: 100, 200
+        on_press: root.number = 0
+
+    Label:
+        text: str(round(root.number))
+        text_size: self.size
+        halign: 'center'
+        valign: 'middle'
